@@ -71,6 +71,14 @@ Linux chạy
 - boot.scr
 17 MB → Partition 2 (ext4 - rootfs)
 
+## Xác minh bootloader
+
+Sử dụng `hexdump` để kiểm tra U-Boot đã được ghi đúng offset:
+
+```bash
+hexdump -C -n 128 output/u-boot-sunxi-with-spl.bin
+hexdump -C -n 128 -s 8192 output/image/lichee-nano-normal-size.img
+
 ##  Môi trường build
 Ubuntu 20.04 (WSL2)
 GCC toolchain ARM
