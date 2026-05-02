@@ -41,7 +41,7 @@ pull_linux(){
 	rm -rf ${temp_root_dir}/${linux_dir} &&\
 	mkdir -p ${temp_root_dir}/${linux_dir} &&\
 	cd ${temp_root_dir}/${linux_dir} &&\
-	git clone https://github.com/ninhnn2/linux-5.4.77.git linux
+	git clone https://github.com/robot9706/lichee-pi-nano-linux.git linux
 	
 	if [ ! -d ${temp_root_dir}/${linux_dir}/linux ]; then
 		echo "Error:pull linux failed"
@@ -96,9 +96,9 @@ pull_buildroot(){
 pull_all(){
     sudo apt-get update
 	sudo apt-get install -y autoconf automake libtool gettext 
-    sudo apt-get install -y make gcc g++ swig python-dev bc python u-boot-tools bison flex bc libssl-dev libncurses5-dev unzip mtd-utils
+    sudo apt-get install -y make gcc g++ swig python2-dev bc python2 u-boot-tools bison flex bc libssl-dev libncurses5-dev unzip mtd-utils
 	sudo apt-get install -y libc6-i386 lib32stdc++6 lib32z1
-	sudo apt-get install -y libc6:i386 libstdc++6:i386 zlib1g:i386
+#	sudo apt-get install -y libc6:i386 libstdc++6:i386 zlib1g:i386
 	pull_uboot
 	pull_linux
 	pull_toolchain
