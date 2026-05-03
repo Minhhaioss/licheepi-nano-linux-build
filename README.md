@@ -16,6 +16,40 @@ Build hệ điều hành Linux nhúng cho **LicheePi Nano (Allwinner F1C100s)** 
 - Hiểu **image layout**
 - Làm chủ pipeline build hệ thống Linux nhúng
 
+## 🚀 Quick Start (cho người mới)
+
+1. Clone project
+
+```bash
+git clone https://github.com/Minhhaioss/licheepi-nano-linux-build.git
+cd licheepi-nano-linux-build
+```
+
+2. Build image
+chmod +x build.sh
+./build.sh pull_all
+./build.sh nano_tf
+
+3. Output
+File image nằm tại:
+output/image/lichee-nano-normal-size.img
+
+4. Flash vào SD card
+sudo dd if=output/image/lichee-nano-normal-size.img of=/dev/sdX bs=4M conv=fsync
+⚠️ Thay /dev/sdX bằng đúng thiết bị của bạn (ví dụ: /dev/sdb)
+
+5. Boot
+Cắm SD card vào board
+Cấp nguồn
+Linux sẽ boot
+
+⚠️ Môi trường build
+Dự án đã được chỉnh sửa để chạy trên:
+Ubuntu 20.04 (WSL2)
+Các thay đổi chính:
+Sử dụng python2 thay vì python
+Fix dependency không tương thích trên Ubuntu mới
+Điều chỉnh build script để chạy ổn định trên WSL
 
 ##  Điểm nổi bật
 
@@ -72,21 +106,12 @@ Linux chạy
 17 MB → Partition 2 (ext4 - rootfs)
 
 ## Xác minh bootloader
-
 Sử dụng `hexdump` để kiểm tra U-Boot đã được ghi đúng offset:
-
 hexdump -C -n 128 output/u-boot-sunxi-with-spl.bin
 hexdump -C -n 128 -s 8192 output/image/lichee-nano-normal-size.img
-
-##  Môi trường build
-Ubuntu 20.04 (WSL2)
-GCC toolchain ARM
-Buildroot
-U-Boot
-Linux Kernel
+👉 Nếu nội dung giống nhau → bootloader đã được ghi đúng vị trí 8KB
 
 ![10742fe16f9898c6c189](https://user-images.githubusercontent.com/86546911/126890831-2fc226ee-0686-4011-8c79-c5a47be7d76e.jpg)
-
 
 MANUAL
 =======================
