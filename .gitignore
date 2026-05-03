@@ -1,6 +1,22 @@
+# build output
+output/
+build/
+dl/
+
+# toolchain
+toolchain/
+
+# logs
+*.log
+
+# images
+*.img
+*.bin
+*.tar
+
+# temporary
+*.o
+*.a
 Lichee-Pi-linux/
 Lichee-Pi-u-boot/
 buildroot-2021.02.3/
-toolchain/
-output/
-*.log
