@@ -51,6 +51,23 @@ Sử dụng python2 thay vì python
 Fix dependency không tương thích trên Ubuntu mới
 Điều chỉnh build script để chạy ổn định trên WSL
 
+### ⚠️ Cài đặt dependency (Ubuntu)
+
+```bash
+sudo apt update
+sudo apt install -y \
+    build-essential \
+    gcc g++ make \
+    bc bison flex \
+    libssl-dev \
+    libncurses5-dev \
+    python2 \
+    swig \
+    unzip \
+    mtd-utils
+```
+⚠️ Một số bước build có thể yêu cầu quyền `sudo`
+
 ##  Điểm nổi bật
 
 -  Sử dụng và tùy chỉnh pipeline build Linux cho LicheePi Nano
